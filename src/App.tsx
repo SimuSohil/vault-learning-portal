@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // Auth Pages
 import LoginPage from "./pages/LoginPage";
@@ -41,7 +41,7 @@ const App = () => (
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           
           {/* Student Routes */}
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/subjects" element={<SubjectsPage />} />
           <Route path="/subjects/:id" element={<SubjectView />} />
